@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Working with radar data in R: Positron for JASMIN – rocb-ento</title>
+<title>Positron for JASMIN – rocb-ento</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -95,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Positron_for_Jasmin.qmd"> 
+    <a class="nav-link active" href="./Positron.html" aria-current="page"> 
 <span class="menu-text">Positron for Jasmin</span></a>
   </li>  
 </ul>
@@ -129,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Working with radar data in R: Positron for JASMIN</h1>
+<h1 class="title">Positron for JASMIN</h1>
 </div>
 
 
@@ -146,7 +146,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Test</p>
 <p>The following document provides some basic information to help R users get started on JASMIN. A new IDE called Positron, made by the developers of RStudio, has recently become available. This IDE is well suited to working on JASMIN for existing RStudio users.</p>
 <section id="what-is-jasmin" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-jasmin">What is JASMIN</h2>
@@ -217,12 +216,7 @@ ul.task-list li input[type="checkbox"] {
 <ol start="4" type="1">
 <li>Create and save the following config file, replacing USERNAME with your JASMIN username, and IdentityKey with the location of your SSH key. This will allow you to jump from login01 to sci-ph-03, for example. You may wish to set the config file to jump to an alternative sci server.</li>
 </ol>
-<pre><code>Host sci-ph-03-via-login-01
-  Hostname sci-ph-03.jasmin.ac.uk
-  User USERNAME
-  ProxyJump USERNAME@login-01.jasmin.ac.uk
-  ForwardAgent yes
-  IdentityFile C:/path_to_your_ssh_key/.ssh/id_rsa_jasmin</code></pre>
+<pre><code>Host sci-ph-03-via-login-01   Hostname sci-ph-03.jasmin.ac.uk   User USERNAME   ProxyJump USERNAME@login-01.jasmin.ac.uk   ForwardAgent yes   IdentityFile C:/path_to_your_ssh_key/.ssh/id_rsa_jasmin</code></pre>
 <ol start="5" type="1">
 <li>On the <code>Remotes</code> section, on the left hand side of the window, you should now see the option to connect to sci-ph-03-via-login-01. Click connect to host.</li>
 </ol>
@@ -234,8 +228,7 @@ ul.task-list li input[type="checkbox"] {
 <p>The <code>Console</code> window may read <code>there is no interpreter running</code>.</p>
 <p>R is an interpreted language, and the R interpreter executes the code that you write. The R interpreter we can use within JASMIN is called Jasr. To use the Jasr interpreter, we need to tell positron where it is stored on JASMIN.</p>
 <p>To find the location of the interpreter, in the terminal window, run:</p>
-<pre><code>&gt; module load jasr
-&gt; which R</code></pre>
+<pre><code>&gt; module load jasr &gt; which R</code></pre>
 <p>This command should give an output similar to:</p>
 <p><code>/apps/jasmin/jaspy/miniforge_envs/jasr4.3/mf3-23.11.0-0/envs/jasr4.3-mf3-23.11.0-0-v20240815/bin/R</code></p>
 <p>Now we will tell Positron the location of Jasr. Open settings, from the bottom left corner. In the settings window, open the Remote settings tab. In these settings, find Postron &gt; R &gt; Interpreters: Default. Paste the directory produced by <code>which R</code>.</p>
