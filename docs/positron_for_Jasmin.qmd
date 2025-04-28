@@ -1,9 +1,9 @@
 ---
 title: "Working with radar data in R: Positron for JASMIN"
 author: "Reuben O'Connell-Booth"
-format: html
-editor: visual
 ---
+
+TEST
 
 The following document provides some basic information to help R users get started on JASMIN. A new IDE called Positron, made by the developers of RStudio, has recently become available. This IDE is well suited to working on JASMIN for existing RStudio users.
 
