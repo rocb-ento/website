@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Reuben O’Connell-Booth">
 
 <title>Positron for JASMIN – rocb-ento</title>
 <style>
@@ -136,6 +137,12 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Reuben O’Connell-Booth </p>
+          </div>
+  </div>
     
   
     
@@ -151,7 +158,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="what-is-jasmin">What is JASMIN</h2>
 <p><a href="https://jasmin.ac.uk/about/">JASMIN</a> is a set of servers used for storage and analysis of environmental data, operated by NERC. If you are NERC funded you should be able to access the service. Through JASMIN, you can access the <a href="https://catalogue.ceda.ac.uk/">CEDA Archive</a> which hosts lots of useful environmental data sets, including data collected by Met Office Radars.</p>
 <p>If you have not set up JASMIN, do that first. <a href="https://help.jasmin.ac.uk/docs/getting-started/" class="uri">https://help.jasmin.ac.uk/docs/getting-started/</a></p>
-<p>Lots of useful information is provided on the JASMIN help site, linked above. If in doubt, refer to that information, not here!</p>
+<p>Lots of useful information is provided on the JASMIN help site, linked above. If in doubt, please refer to that documentation (not here!)</p>
 </section>
 <section id="using-r-on-jasmin" class="level2">
 <h2 class="anchored" data-anchor-id="using-r-on-jasmin">Using R on JASMIN</h2>
@@ -194,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="vscode" class="level2">
 <h2 class="anchored" data-anchor-id="vscode">VSCode</h2>
 <p>Fortunately, we have other IDEs to choose from. One popular option is Microsoft’s VSCode. This IDE is powerful &amp; widely used for various coding tasks. Importantly, one can <a href="https://help.jasmin.ac.uk/docs/interactive-computing/access-from-vscode/">access JASMIN from VSCode</a>.</p>
-<p>While R is perfectly usable within VSCode with some additional <a href="https://code.visualstudio.com/docs/languages/r">setup</a>, there is good reason why many R users prefer RStudio to VSCode, the latter is geared more towards general purpose programming than data analysis specifically. Features of RStudio one may miss in VSCode include:</p>
+<p>While R is perfectly usable within VSCode with some additional <a href="https://code.visualstudio.com/docs/languages/r">setup</a>, there is good reason why many R users prefer RStudio; the latter is geared more towards general purpose programming than data analysis per se. Features of RStudio one may miss in VSCode include:</p>
 <ul>
 <li><p>The plot viewer</p></li>
 <li><p>The dataframe viewer</p></li>
@@ -206,20 +213,26 @@ ul.task-list li input[type="checkbox"] {
 <section id="positron" class="level2">
 <h2 class="anchored" data-anchor-id="positron">Positron</h2>
 <p>Another option is <a href="https://positron.posit.co/">Positron</a>.</p>
-<p>Positron is an (in development) IDE built by Posit, the developers of RStudio, using the open source components of VS code. As such shares many powerful features of both VSCode and RStudio. In contrast to VS code, which is designed for many types of programming, Positron is designed with data analysis in mind. To this end, it arguably exceeds RStudio in some respects. For example, it has small improvements to the plot and data viewer options. It also has much better support for Python. RStudio users may find Positron to be more familiar and quicker to get running than VSCode. Running Positron locally, the software will automatically identify R and Python installations, allowing one to easily switch between R and Python environments. For an overview of the design behind Positron, please see this presentation given at the <a href="https://www.youtube.com/watch?v=8uRcB34Hhsw&amp;t=808s">Posit 2024 conference</a>.</p>
+<p>Positron is an (in development) IDE built by Posit, the developers of RStudio, using the open source components of VSCode. As such shares features of both VSCode and RStudio. In contrast to VSCode, which is designed for many types of programming, Positron is designed with data analysis in mind. It arguably exceeds RStudio in some respects. For example, it has small improvements to the plot and data viewer options. It also has much better support for Python. Running Positron locally, the software will automatically identify R and Python installations, allowing one to easily switch between R and Python environments. For an overview of the design behind Positron, please see this presentation given at the <a href="https://www.youtube.com/watch?v=8uRcB34Hhsw&amp;t=808s">Posit 2024 conference</a>. Importantly, RStudio users may find Positron to be more familiar and quicker to get running than VSCode.</p>
 <ol type="1">
 <li>Install Positron locally (there is no need to install the software on JASMIN): <a href="https://positron.posit.co/download.html" class="uri">https://positron.posit.co/download.html</a></li>
 <li>Allow firewall access, wait for Positron to detect local R and python interpreters.</li>
 <li>We will now instruct positron on how to connect to JASMIN by presenting our SSH keys, connecting to a login server, then connecting to a science server. First, open the command palette at the top of the screen and type &gt;SSH. Open the SSH Configuration file.</li>
 </ol>
-<p><img src="Positron for JASMIN_files/Screenshot 2025-04-28 133511.png" class="img-fluid"></p>
+<p><img src="images/paste-1.png" class="img-fluid"></p>
 <ol start="4" type="1">
 <li>Create and save the following config file, replacing USERNAME with your JASMIN username, and IdentityKey with the location of your SSH key. This will allow you to jump from login01 to sci-ph-03, for example. You may wish to set the config file to jump to an alternative sci server.</li>
 </ol>
-<pre><code>Host sci-ph-03-via-login-01   Hostname sci-ph-03.jasmin.ac.uk   User USERNAME   ProxyJump USERNAME@login-01.jasmin.ac.uk   ForwardAgent yes   IdentityFile C:/path_to_your_ssh_key/.ssh/id_rsa_jasmin</code></pre>
+<pre class="plaintext"><code>Host sci-ph-03-via-login-01
+Hostname sci-ph-03.jasmin.ac.uk
+User USERNAME
+ProxyJump USERNAME@login-01.jasmin.ac.uk
+ForwardAgent yes
+IdentityFile C:/path_to_your_ssh_key/.ssh/id_rsa_jasmin</code></pre>
 <ol start="5" type="1">
 <li>On the <code>Remotes</code> section, on the left hand side of the window, you should now see the option to connect to sci-ph-03-via-login-01. Click connect to host.</li>
 </ol>
+<p><img src="images/2.png" class="img-fluid"></p>
 <p>If positron cannot connect to JASMIN, you may wish to <a href="https://help.jasmin.ac.uk/docs/getting-started/present-ssh-key/">load your SSH key into an agent</a>. On Windows this is simple, and involves navigating to Services, finding OpenSSH authentication agent, setting to manual and starting the service.</p>
 </section>
 <section id="adding-the-jasr-interpreter-to-positron." class="level2">
@@ -227,17 +240,17 @@ ul.task-list li input[type="checkbox"] {
 <p>On the <code>Terminal</code> window, you should now be connected to your specified science server.</p>
 <p>The <code>Console</code> window may read <code>there is no interpreter running</code>.</p>
 <p>R is an interpreted language, and the R interpreter executes the code that you write. The R interpreter we can use within JASMIN is called Jasr. To use the Jasr interpreter, we need to tell positron where it is stored on JASMIN.</p>
-<p>To find the location of the interpreter, in the terminal window, run:</p>
-<pre><code>&gt; module load jasr &gt; which R</code></pre>
+<p>To find the location of the interpreter, run in terminal:</p>
+<pre class="plaintext"><code>&gt; module load jasr
+&gt; which R</code></pre>
 <p>This command should give an output similar to:</p>
 <p><code>/apps/jasmin/jaspy/miniforge_envs/jasr4.3/mf3-23.11.0-0/envs/jasr4.3-mf3-23.11.0-0-v20240815/bin/R</code></p>
 <p>Now we will tell Positron the location of Jasr. Open settings, from the bottom left corner. In the settings window, open the Remote settings tab. In these settings, find Postron &gt; R &gt; Interpreters: Default. Paste the directory produced by <code>which R</code>.</p>
 <p><img src="images/clipboard-3850800441.png" class="img-fluid"></p>
 <p>Restart Positron and select the R interpreter at the top right hand corner.</p>
-<p><img src="images/clipboard-3952736749.png" class="img-fluid"></p>
 <p>To open your group work space (GWS) directory, File &gt; Open Folder. Type your GWS directory.</p>
-<p><img src="images/clipboard-1500084672.png" class="img-fluid"></p>
 <p>You can now use Positron to write and execute R code interactively, in a similar fashion to working locally with RStudio.</p>
+<p><img src="images/clipboard-1500084672.png" class="img-fluid"></p>
 </section>
 <section id="other-tips" class="level2">
 <h2 class="anchored" data-anchor-id="other-tips">Other tips</h2>
