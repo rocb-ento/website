@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "nowcast.html",
+    "href": "nowcast.html",
+    "title": "Nowcast",
+    "section": "",
+    "text": "#| '!! shinylive warning !!': |\n#|   shinylive does not work in self-contained HTML documents.\n#|   Please set `embed-resources: false` in your metadata.\n#| standalone: true\n\nlibrary(shiny)\n\n# Define your Shiny UI here\nui &lt;- fluidPage(\n  # Your UI components go here\n)\n\n# Define your Shiny server logic here\nserver &lt;- function(input, output, session) {\n  # Your server code goes here\n}\n\n# Create and launch the Shiny app\nshinyApp(ui, server)"
+  },
+  {
     "objectID": "Positron.html",
     "href": "Positron.html",
     "title": "Positron for JASMIN",
@@ -54,19 +61,5 @@
     "title": "Positron for JASMIN",
     "section": "Other tips",
     "text": "Other tips\n\nTo upload a file to JASMIN, simply drag and drop from your local machine into Positron’s Explorer tab. To download a file form JASMIN, right click download. To transfer larger files, connect to an Xfer server instead of a science server.\nTo use familiar RStudio key mappings, search for keymap in settings and enable RStudio key mappings. This will enable Ctrl-1Ctrl-1 for focus source and Ctrl-Shift-CCtrl-Shift-C to comment out code."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Reuben O’Connell-Booth bs21rocb@leeds.ac.uk\nWebsite in progress!"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Index",
-    "section": "",
-    "text": "Reuben O’Connell-Booth\nUsing R with Positron on JASMIN\nContact: bs21rocb@leeds.ac.uk\nSource: https://github.com/rocb-ento/\nhttps://orcid.org/my-orcid?orcid=0009-0007-9929-895X"
   }
 ]
